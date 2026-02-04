@@ -1,42 +1,41 @@
-// ---- Exchange rates (replace with API later) ----
 const FX_RATES = {
   USD: 1,
   AUD: 1.52,
   MYR: 4.65
 };
 
-// ---- Currency symbols ----
 const SYMBOLS = {
   USD: "$",
   AUD: "A$",
   MYR: "RM"
 };
 
-// ---- Format helper ----
-function formatPrice(value, currency) {
-  return `${SYMBOLS[currency]} ${value.toLocaleString(undefined, {
+function formatPrice(amount, currency) {
+  return `${SYMBOLS[currency]} ${amount.toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
   })}`;
 }
 
-// ---- Update all prices on page ----
-function updatePrices(currency) {
-  const rate = FX_RATES[currency];
+function updateSpotPrice(currency) {
+  const el = document.getElementById("spotPrice");
 
-  document.querySelectorAll("[data-base-usd]").forEach(el => {
-    const baseUSD = parseFloat(el.dataset.baseUsd);
-    const converted = baseUSD * rate;
-    el.textContent = formatPrice(converted, currency);
-  });
+  // Read base USD price from HTML
+  const baseUSD = parseFloat(el.dataset.baseUsd);
+
+  // Convert
+  const converted = baseUSD * FX_RATES[currency];
+
+  // Replace text content
+  el.textContent = formatPrice(converted, currency);
 }
 
-// ---- Wire up currency selector ----
+// Currency dropdown
 const currencySelect = document.getElementById("currencySelect");
 
 currencySelect.addEventListener("change", e => {
-  updatePrices(e.target.value);
+  updateSpotPrice(e.target.value);
 });
 
-// ---- Init on page load ----
-updatePrices(currencySelect.value);
+// Init on page load
+updateSpotPrice(currencySelect.value);
