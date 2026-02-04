@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gold Info — Skeleton</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Top Nav -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#">
+        <span class="brand__mark">◉</span>
+        <span class="brand__name">GoldInfo</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link is-active" href="#">Gold</a>
+        <a class="nav__link" href="#">Silver</a>
+        <a class="nav__link" href="#">Charts</a>
+        <a class="nav__link" href="#">Calculator</a>
+        <a class="nav__link" href="#">News</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <label class="select">
+          <span class="sr-only">Currency</span>
+          <select>
+            <option>AUD</option>
+            <option>USD</option>
+            <option>MYR</option>
+          </select>
+        </label>
+
+        <div class="meta">
+          <div class="meta__label">Last updated</div>
+          <div class="meta__value" id="lastUpdated">—</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="card hero__price">
+        <div class="card__header">
+          <h1 class="h1">Gold Spot Price</h1>
+          <div class="pill">Live</div>
+        </div>
+
+        <div class="price">
+          <div class="price__value" id="spotPrice">AUD 0,000.00</div>
+          <div class="price__sub">
+            <span class="delta delta--up" id="spotDelta">+0.00 (0.00%)</span>
+            <span class="muted">per oz</span>
+          </div>
+        </div>
+
+        <div class="grid grid--3 stats">
+          <div class="stat">
+            <div class="stat__label">Day High</div>
+            <div class="stat__value" id="dayHigh">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">Day Low</div>
+            <div class="stat__value" id="dayLow">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">AUD/USD</div>
+            <div class="stat__value" id="fxRate">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card hero__side">
+        <div class="card__header">
+          <h2 class="h2">Key Stats</h2>
+        </div>
+
+        <div class="rows">
+          <div class="row">
+            <div class="row__label">Gold / Silver Ratio</div>
+            <div class="row__value" id="gsRatio">—</div>
+          </div>
+          <div class="row">
+            <div class="row__label">30D Change</div>
+            <div class="row__value" id="mtdChange">—</div>
+          </div>
+          <div class="row">
+            <div class="row__label">YTD Change</div>
+            <div class="row__value" id="ytdChange">—</div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <a class="btn" href="#">View full market page</a>
+      </div>
+    </section>
+
+    <!-- Main Grid -->
+    <section class="layout">
+      <!-- Chart -->
+      <div class="card">
+        <div class="card__header card__header--split">
+          <h2 class="h2">Price Chart</h2>
+
+          <div class="segmented" role="tablist" aria-label="Chart timeframe">
+            <button class="segmented__btn is-active" type="button">1D</button>
+            <button class="segmented__btn" type="button">1W</button>
+            <button class="segmented__btn" type="button">1M</button>
+            <button class="segmented__btn" type="button">1Y</button>
+            <button class="segmented__btn" type="button">MAX</button>
+          </div>
+        </div>
+
+        <div class="chart" aria-label="Chart placeholder">
+          <div class="chart__placeholder">
+            <div class="chart__title">Chart goes here</div>
+            <div class="muted small">Hook up a chart library later (Chart.js / Lightweight Charts)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Converter -->
+      <div class="card">
+        <div class="card__header">
+          <h2 class="h2">Converter</h2>
+        </div>
+
+        <form class="form" onsubmit="return false;">
+          <label class="field">
+            <span class="field__label">Amount</span>
+            <input class="input" type="number" min="0" step="0.01" placeholder="e.g. 1000" />
+          </label>
+
+          <div class="grid grid--2">
+            <label class="field">
+              <span class="field__label">Unit</span>
+              <select class="input">
+                <option>Ounce (oz)</option>
+                <option>Gram (g)</option>
+                <option>Kilogram (kg)</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Purity</span>
+              <select class="input">
+                <option>24K (99.9%)</option>
+                <option>22K (91.6%)</option>
+                <option>18K (75.0%)</option>
+              </select>
+            </label>
+          </div>
+
+          <button class="btn btn--ghost" type="button">Calculate</button>
+
+          <div class="result">
+            <div class="result__label">Estimated value</div>
+            <div class="result__value">AUD —</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Price Table -->
+    <section class="card">
+      <div class="card__header">
+        <h2 class="h2">Gold Price by Unit</h2>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Unit</th>
+              <th>Price</th>
+              <th>Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 oz</td>
+              <td>AUD 0,000.00</td>
+              <td><span class="delta delta--up">+0.00%</span></td>
+            </tr>
+            <tr>
+              <td>1 g</td>
+              <td>AUD 0.00</td>
+              <td><span class="delta delta--down">-0.00%</span></td>
+            </tr>
+            <tr>
+              <td>1 kg</td>
+              <td>AUD 00,000.00</td>
+              <td><span class="delta delta--up">+0.00%</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section class="news">
+      <div class="section-head">
+        <h2 class="h2">Market News</h2>
+        <a class="link" href="#">See all</a>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card news__card">
+          <div class="news__meta">Feb 4, 2026 · 2 min read</div>
+          <h3 class="h3">Gold steadies as markets weigh inflation data</h3>
+          <p class="muted">
+            Short snippet placeholder. Keep these tight and consistent.
+          </p>
+          <a class="link" href="#">Read more</a>
+        </article>
+
+        <article class="card news__card">
+          <div class="news__meta">Feb 4, 2026 · 3 min read</div>
+          <h3 class="h3">USD movement and what it means for AUD gold</h3>
+          <p class="muted">
+            Placeholder text for your feed items.
+          </p>
+          <a class="link" href="#">Read more</a>
+        </article>
+
+        <article class="card news__card">
+          <div class="news__meta">Feb 4, 2026 · 4 min read</div>
+          <h3 class="h3">Central bank demand remains a key support</h3>
+          <p class="muted">
+            Another snippet placeholder.
+          </p>
+          <a class="link" href="#">Read more</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="muted small">© <span id="year"></span> GoldInfo. Data may be delayed.</div>
+        <div class="muted small">Built for clean, readable gold information.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Tiny placeholder "last updated" + footer year (you'll replace with real data later)
+    const now = new Date();
+    document.getElementById('lastUpdated').textContent = now.toLocaleString();
+    document.getElementById('year').textContent = String(now.getFullYear());
+  </script>
+</body>
+</html>
