@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gold Info — Skeleton</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="app.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
       <div class="topbar__actions">
         <label class="select">
           <span class="sr-only">Currency</span>
-          <select>
+          <select id="currency-select">
             <option>AUD</option>
             <option>USD</option>
             <option>MYR</option>
@@ -42,7 +43,6 @@
   </header>
 
   <main class="container">
-    <!-- Hero -->
     <section class="hero">
       <div class="card hero__price">
         <div class="card__header">
@@ -51,7 +51,7 @@
         </div>
 
         <div class="price">
-          <div class="price__value" id="spotPrice">AUD 0,000.00</div>
+          <div class="price__value" id="spotPrice" data-base-used="2034.55">AUD 0,000.00</div>
           <div class="price__sub">
             <span class="delta delta--up" id="spotDelta">+0.00 (0.00%)</span>
             <span class="muted">per oz</span>
