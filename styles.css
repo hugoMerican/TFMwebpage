@@ -77,7 +77,6 @@ a:hover{ text-decoration: underline; }
 }
 #brand_logo{
     width:50px;
-    padding-left: 0%;
 }
 .brand__mark{ color: var(--gold); }
 .brand__name{ letter-spacing: -0.2px; }
@@ -124,6 +123,68 @@ a:hover{ text-decoration: underline; }
 .meta__value{
   font-size: 0.95rem;
 }
+
+/* Wrapper so dropdown can position itself */
+.nav__item--dropdown{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Chevron */
+.nav__chev{
+  margin-left: 6px;
+  font-size: 0.8em;
+  color: var(--muted);
+}
+
+/* Dropdown panel */
+.dropdown{
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+
+  min-width: 180px;
+  padding: 8px;
+
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+
+  display: none;
+  z-index: 50;
+}
+
+/* Show on hover or keyboard focus */
+.nav__item--dropdown:hover .dropdown,
+.nav__item--dropdown:focus-within .dropdown{
+  display: block;
+}
+
+/* Dropdown links */
+.dropdown__link{
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.dropdown__link:hover,
+.dropdown__link:focus{
+  background: var(--surface);
+  text-decoration: none;
+}
+
+/* Make Markets pill look active when open */
+.nav__item--dropdown:hover > .nav__link,
+.nav__item--dropdown:focus-within > .nav__link{
+  background: var(--surface);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
 
 /* ---------- Cards ---------- */
 .card{

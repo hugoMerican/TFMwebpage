@@ -6,7 +6,7 @@
   <title>TFM Bullion Trade Enterprises</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js"></script>
-  <link rel="icon" type="images/png" href="TFMFlavicon.pngg">
+  <link rel="icon" type="images/png" href="TFMFlavicon.png">
 </head>
 
 <body>
@@ -15,11 +15,21 @@
     <div class="container topbar__inner">
       <a class="brand" href="#">
         <img src="TFMLogo.jpg" id="brand_logo">
-        <span class="brand__name">TFM Bullion Trade</span>
+        <span class="brand__name">TFM Bullion</span>
       </a>
 
       <nav class="nav">
-        <a class="nav__link is-active" href="#">Markets</a>
+        <div class="nav__item nav__item--dropdown">
+            <a class="nav__link is-active" href="#markets">
+            Markets
+            <span class="nav__chev">▾</span>
+            </a>
+
+            <div class="dropdown">
+            <a class="dropdown__link" href="#gold">Gold</a>
+            <a class="dropdown__link" href="#silver">Silver</a>
+            </div>
+        </div>
         <a class="nav__link" href="#">Charts</a>
         <a class="nav__link" href="#">Calculator</a>
         <a class="nav__link" href="#">News</a>
@@ -52,7 +62,7 @@
         </div>
 
         <div class="price">
-          <div class="price__value" id="spotPrice" data-base-used="2034.55">AUD 0,000.00</div>
+          <div class="price__value" id="spotPrice" data-base-used="2034.55">MYR 1906.60</div>
           <div class="price__sub">
             <span class="delta delta--up" id="spotDelta">+0.00 (0.00%)</span>
             <span class="muted">per oz</span>
@@ -84,10 +94,6 @@
           <div class="row">
             <div class="row__label">Gold / Silver Ratio</div>
             <div class="row__value" id="gsRatio">—</div>
-          </div>
-          <div class="row">
-            <div class="row__label">30D Change</div>
-            <div class="row__value" id="mtdChange">—</div>
           </div>
           <div class="row">
             <div class="row__label">YTD Change</div>
@@ -124,10 +130,9 @@
         </div>
       </div>
 
-      <!-- Converter -->
       <div class="card">
         <div class="card__header">
-          <h2 class="h2">Converter</h2>
+          <h2 class="h2">Value</h2>
         </div>
 
         <form class="form" onsubmit="return false;">
