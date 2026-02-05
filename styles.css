@@ -75,6 +75,10 @@ a:hover{ text-decoration: underline; }
   gap: var(--s-2);
   font-weight: 700;
 }
+#brand_logo{
+    width:50px;
+    padding-left: 0%;
+}
 .brand__mark{ color: var(--gold); }
 .brand__name{ letter-spacing: -0.2px; }
 
