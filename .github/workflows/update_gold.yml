@@ -1,8 +1,9 @@
+
 name: Update Gold JSON
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/15 * * * *"   # every 15 minutes
   workflow_dispatch:
 
 permissions:
@@ -22,19 +23,20 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: |
-          pip install requests
+        run: pip install requests
 
-      - name: Update gold.json
+      - name: Run updater
         env:
           GOLDAPI_KEY: ${{ secrets.GOLDAPI_KEY }}
-        run: |
-          python scripts/update_gold.py
+        run: python scripts/update_gold.py
 
-      - name: Commit and push if changed
+      - name: Commit & push if changed
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add data/gold.json
-          git diff --cached --quiet || git commit -m "Auto-update gold.json"
+          git diff --cached --quiet && echo "No changes" && exit 0
+
+          git commit -m "Auto-update gold.json"
           git push
