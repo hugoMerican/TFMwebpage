@@ -29,8 +29,10 @@ jobs:
         env:
           GOLDAPI_KEY: ${{ secrets.GOLDAPI_KEY }}
         run: |
-          cd $GITHUB_WORKSPACE
-          python scripts/update_gold.py
+          pwd
+          ls -lah
+          ls -lah scripts
+          python ./scripts/update_gold.py
 
       - name: Commit and push if changed
         run: |
