@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TFM Bullion Trade Enterprises</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="app.js"></script>
+  <script src="gold.js"></script>
   <link rel="icon" type="images/png" href="TFMFlavicon.png">
 </head>
 
@@ -62,7 +62,7 @@
         </div>
 
         <div class="price">
-          <div class="price__value" id="spotPrice" data-base-used="2034.55">MYR 1906.60</div>
+          <div class="price__value" id="spotPrice" data-base-used="2034.55">MYR 19110.82</div>
           <div class="price__sub">
             <span class="delta delta--up" id="spotDelta">+0.00 (0.00%)</span>
             <span class="muted">per oz</span>
@@ -244,6 +244,19 @@
       </div>
     </section>
 
+    <section class="card">
+      <div class="card__header">
+        <h2 class="h2">API Testing Area</h2>
+      </div>
+      <div class="price-card">
+        <div class="label">Gold (XAU/USD)</div>
+        <div id="gold-price" class="value">—</div>
+        <div id="gold-updated" class="meta">Last updated: —</div>
+        <div id="gold-status" class="meta"></div>
+      </div>
+
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="footer__inner">
@@ -252,12 +265,5 @@
       </div>
     </footer>
   </main>
-
-  <script>
-    // Tiny placeholder "last updated" + footer year (you'll replace with real data later)
-    const now = new Date();
-    document.getElementById('lastUpdated').textContent = now.toLocaleString();
-    document.getElementById('year').textContent = String(now.getFullYear());
-  </script>
 </body>
 </html>
