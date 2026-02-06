@@ -13,16 +13,20 @@ async function loadGold() {
 document.addEventListener("DOMContentLoaded", () => {
   loadGold()
     .then(data => {
-      const price = Number(data.price);
+      // Use correct field from gold.json
+      const price = Number(data.reference_oz);
 
-      document.getElementById("gold-price").textContent =
-        isNaN(price) ? "—" : `$${price.toFixed(2)}`;
+      // Update main spot price
+      document.getElementById("spotPrice").textContent =
+        isNaN(price) ? "—" : `MYR ${price.toFixed(2)}`;
 
-      document.getElementById("gold-updated").textContent =
-        `Last updated: ${new Date(data.updated_at).toLocaleString()}`;
+      // Update last updated time
+      document.getElementById("lastUpdated").textContent =
+        new Date(data.updated_at_utc).toLocaleString();
     })
     .catch(err => {
       console.error(err);
-      document.getElementById("gold-price").textContent = "Unavailable";
+      document.getElementById("spotPrice").textContent = "Unavailable";
     });
 });
+
