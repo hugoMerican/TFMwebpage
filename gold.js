@@ -1,28 +1,32 @@
-alert("gold.js loaded");
-
 async function loadGold() {
-  const res = await fetch("./data/gold.json", { cache: "no-store" });
-  if (!res.ok) throw new Error("Failed to load gold.json");
-  return res.json();
+  const statusEl = document.getElementById("gold-status");
+
+  try {
+    if (statusEl) statusEl.textContent = "gold.js running...";
+
+    const res = await fetch("./data/gold.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+
+    const data = await res.json();
+
+    const spotEl = document.getElementById("spotPrice");
+    if (!spotEl) throw new Error("Cannot find #spotPrice in HTML");
+
+    const ref = Number(data.reference_oz);
+    if (!Number.isFinite(ref)) throw new Error("reference_oz missing or not a number");
+
+    spotEl.textContent = `MYR ${ref.toFixed(2)}`;
+
+    const lastEl = document.getElementById("lastUpdated");
+    if (lastEl && data.updated_at_utc) {
+      lastEl.textContent = new Date(data.updated_at_utc).toLocaleString();
+    }
+
+    if (statusEl) statusEl.textContent = "OK: updated spotPrice from gold.json";
+  } catch (e) {
+    console.error(e);
+    if (statusEl) statusEl.textContent = `ERROR: ${e.message}`;
+  }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const data = await loadGold();
-
-    // Update price
-    document.getElementById("spotPrice").textContent =
-      `MYR ${Number(data.reference_oz).toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })}`;
-
-    // Update last updated
-    document.getElementById("lastUpdated").textContent =
-      new Date(data.updated_at_utc).toLocaleString();
-
-  } catch (err) {
-    console.error(err);
-    document.getElementById("spotPrice").textContent = "—";
-  }
-});
+document.addEventListener("DOMContentLoaded", loadGold);
