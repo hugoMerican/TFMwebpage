@@ -1,15 +1,15 @@
 {
   "metal": "XAU",
   "currency": "MYR",
-  "price_oz": 19527.3555,
-  "bid_oz": 19525.7775,
-  "ask_oz": 19530.1959,
-  "reference_oz": 19527.99,
+  "price_oz": 19526.4679,
+  "bid_oz": 19527.5922,
+  "ask_oz": 19531.9711,
+  "reference_oz": 19529.78,
   "reference_type": "mid",
-  "reference_g": 627.84,
-  "reference_kg": 627839.35,
-  "updated_at_utc": "2026-02-06T15:22:23.845527+00:00",
-  "server_time": 1770391347,
+  "reference_g": 627.9,
+  "reference_kg": 627897.06,
+  "updated_at_utc": "2026-02-06T15:23:48.753390+00:00",
+  "server_time": 1770391432,
   "source": "goldapi.io",
   "note": "Different feeds (TradingView vs GoldAPI) can differ due to bid/ask, FX source, and timing."
 }
