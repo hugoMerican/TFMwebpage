@@ -4,9 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TFM Bullion Trade Enterprises</title>
+
+  <!-- Font: Inter (CME-like) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
   <script src="gold.js"></script>
-  <link rel="icon" type="images/png" href="TFMFlavicon.png">
+  <link rel="icon" type="image/png" href="TFMFlavicon.png">
 </head>
 
 <body>
@@ -14,37 +20,39 @@
   <header class="topbar">
     <div class="container topbar__inner">
       <a class="brand" href="#">
-        <img src="TFMLogo.jpg" id="brand_logo">
+        <img src="TFMLogo.jpg" id="brand_logo" alt="TFM Bullion logo">
         <span class="brand__name">TFM Bullion</span>
       </a>
 
       <nav class="nav">
         <div class="nav__item nav__item--dropdown">
-            <a class="nav__link is-active" href="#markets">
+          <a class="nav__link is-active" href="#markets">
             Markets
             <span class="nav__chev">▾</span>
-            </a>
+          </a>
 
-            <div class="dropdown">
+          <div class="dropdown">
             <a class="dropdown__link" href="#gold">Gold</a>
             <a class="dropdown__link" href="#silver">Silver</a>
-            </div>
+          </div>
         </div>
-        <a class="nav__link" href="#">Charts</a>
-        <a class="nav__link" href="#">Calculator</a>
-        <a class="nav__link" href="#">News</a>
+
+        <a class="nav__link" href="#charts">Charts</a>
+        <a class="nav__link" href="#calculator">Calculator</a>
+        <a class="nav__link" href="#news">News</a>
       </nav>
 
       <div class="topbar__actions">
         <label class="select">
           <span class="sr-only">Currency</span>
-          <a class="btn btn--login" href="#">LOG IN</a>
           <select id="currency-select">
             <option>AUD</option>
             <option>USD</option>
             <option>MYR</option>
           </select>
         </label>
+
+        <a class="btn btn--login" href="#">LOG IN</a>
 
         <div class="meta">
           <div class="meta__label">Last updated</div>
@@ -55,7 +63,7 @@
   </header>
 
   <main class="container">
-    <section class="hero">
+    <section class="hero" id="markets">
       <div class="card hero__price">
         <div class="card__header">
           <h1 class="h1">Gold Spot Price</h1>
@@ -108,9 +116,7 @@
       </div>
     </section>
 
-    <!-- Main Grid -->
-    <section class="layout">
-      <!-- Chart -->
+    <section class="layout" id="charts">
       <div class="card">
         <div class="card__header card__header--split">
           <h2 class="h2">Price Chart</h2>
@@ -131,7 +137,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" id="calculator">
         <div class="card__header">
           <h2 class="h2">Value</h2>
         </div>
@@ -172,7 +178,6 @@
       </div>
     </section>
 
-    <!-- Price Table -->
     <section class="card">
       <div class="card__header">
         <h2 class="h2">Gold Price by Unit</h2>
@@ -208,8 +213,7 @@
       </div>
     </section>
 
-    <!-- News -->
-    <section class="news">
+    <section class="news" id="news">
       <div class="section-head">
         <h2 class="h2">Market News</h2>
         <a class="link" href="#">See all</a>
@@ -218,47 +222,27 @@
       <div class="grid grid--3">
         <article class="card news__card">
           <div class="news__meta">Feb 4, 2026 · 2 min read</div>
-          <h3 class="h3">Corwyn Foo Tickled my balls the other day</h3>
-          <p class="muted">
-            Chicken Backside
-          </p>
+          <h3 class="h3">Placeholder headline</h3>
+          <p class="muted">Short summary goes here.</p>
           <a class="link" href="#">Read more</a>
         </article>
 
         <article class="card news__card">
           <div class="news__meta">Feb 4, 2026 · 3 min read</div>
-          <h3 class="h3">Tang Junn Ming voted most handsome man on Earth</h3>
-          <p class="muted">
-            slurp
-          </p>
+          <h3 class="h3">Placeholder headline</h3>
+          <p class="muted">Short summary goes here.</p>
           <a class="link" href="#">Read more</a>
         </article>
 
         <article class="card news__card">
           <div class="news__meta">Feb 4, 2026 · 4 min read</div>
-          <h3 class="h3">I ran out of new ideas</h3>
-          <p class="muted">
-            A PLACEHOLDER 
-          </p>
+          <h3 class="h3">Placeholder headline</h3>
+          <p class="muted">Short summary goes here.</p>
           <a class="link" href="#">Read more</a>
         </article>
       </div>
     </section>
 
-    <section class="card">
-      <div class="card__header">
-        <h2 class="h2">API Testing Area</h2>
-      </div>
-      <div class="price-card">
-        <div class="label">Gold (XAU/USD)</div>
-        <div id="gold-price" class="value">—</div>
-        <div id="gold-updated" class="meta">Last updated: —</div>
-        <div id="gold-status" class="meta"></div>
-      </div>
-
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
       <div class="footer__inner">
         <div class="muted small"><span id="year"></span> TFM Enterprises</div>
@@ -266,5 +250,11 @@
       </div>
     </footer>
   </main>
+
+  <script>
+    // Optional: set year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
