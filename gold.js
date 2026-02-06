@@ -1,3 +1,5 @@
+alert("gold.js loaded");
+
 async function loadGold() {
   const res = await fetch("./data/gold.json", { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load gold.json");
