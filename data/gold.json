@@ -1,11 +1,11 @@
 {
   "metal": "XAU",
   "currency": "MYR",
-  "price_oz": 16966.0657,
-  "bid_oz": 16964.4915,
-  "ask_oz": 16967.4354,
-  "reference_oz": 16965.96345,
+  "price_oz": 17158.3825,
+  "bid_oz": 17157.1149,
+  "ask_oz": 17159.8137,
+  "reference_oz": 17158.4643,
   "reference_type": "mid",
-  "updated_at_utc": "2026-10-09T00:34:22.925469+00:00",
+  "updated_at_utc": "2026-10-09T07:13:24.513216+00:00",
   "source": "goldapi.io"
 }
